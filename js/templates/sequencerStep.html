@@ -1,0 +1,7 @@
+<div class="stepIndicator">
+	<a class="btn btn-sm btn-{{(step.idx == currentStep) ? 'danger' : 'off'}}" ng-click="handleToggle()"></a>
+</div>
+<div class="stepSlider"></div>
+<div class="stepToggle">
+	<a class="btn btn-sm btn-{{step.enabled ? 'danger' : 'off'}}" ng-click="handleToggle()">{{step.enabled ? 'On' : 'Off'}}</a>
+</div>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+	<title>Sequentiator</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/nouislider.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sequencer.css" />
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-default navbar-inverse navbar-static-top">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Sequentiator <span id="sequencerVersion"></span></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Preferences</a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> Help</a>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container-fluid maincontain">
+		<div class="col-sm-2 controlcontain">
+
+			<div class="controls">
+				<div class="row">
+					<div class="col-sm-12 text-center clearfix">
+						<div id="modeSelector" class="btn-group" role="group">
+							<button id="seqModeSelector" type="button" class="btn btn-lg">Seq</button>
+							<button id="arpModeSelector" type="button" class="btn btn-lg">Arp</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 text-center clearfix">
+						<div id="masterSpeedTitle" class="masterLabel">Tempo</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 masterSliderContainer">
+						<div id="speedSlider" class="masterSlider"></div>
+						<div id="seqBPM" class="masterOutput"></div>
+					</div>
+					<div class="col-sm-6 masterButtonContainer">
+						<div class="masterButton">
+							<button type="button" id="seqSpeedHalf" class="btn btn-lg btn-block">x/2</button>
+						</div>
+						<div class="masterButton">
+							<button type="button" id="seqSpeed1X" class="btn btn-lg btn-block">x</button>
+						</div>
+						<div class="masterButton">
+							<button type="button" id="seqSpeed2X" class="btn btn-lg btn-block">2x</button>
+						</div>
+						<div class="masterButton">
+							<button type="button" id="seqSpeedTap" class="btn btn-lg btn-block btn-default">
+								<span class="glyphicon glyphicon-record"></span>
+			                </button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 text-center clearfix">
+						<div id="masterBankTitle" class="masterLabel">Banks</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 text-center clearfix">
+						<div id="bankSelector" class="btn-group" role="group">
+							<button type="button" id="bank1Selector" class="btn btn-lg">&#160;&#160;1&#160;&#160;</button>
+							<button type="button" id="bank2Selector" class="btn btn-lg">&#160;&#160;2&#160;&#160;</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="controls row">
+				<div class="col-sm-6 masterButtonContainer especial">
+					<div class="masterButton">
+						<button type="button" id="seqStop" class="btn btn-lg">
+							<span class="glyphicon glyphicon-stop"></span>
+		                </button>
+					</div>
+					<div class="masterButton">
+						<button type="button" id="seqPause" class="btn btn-lg">
+							<span class="glyphicon glyphicon-pause"></span>
+		                </button>
+					</div>
+					<div class="masterButton">
+						<button type="button" id="seqPrev" class="btn btn-lg">
+							<span class="glyphicon glyphicon-step-backward"></span>
+		                </button>
+					</div>
+				</div>
+				<div class="col-sm-6 masterButtonContainer especial">
+					<div class="masterButton">
+						<button type="button" id="seqPlay" class="btn btn-lg">
+							<span class="glyphicon glyphicon-play"></span>
+		                </button>
+					</div>
+					<div class="masterButton">
+						<button type="button" id="seqReset" class="btn btn-lg btn-default">
+							<span class="glyphicon glyphicon-fast-backward"></span>
+		                </button>
+					</div>
+					<div class="masterButton">
+						<button type="button" id="seqNext" class="btn btn-lg">
+							<span class="glyphicon glyphicon-step-forward"></span>
+		                </button>
+					</div>
+				</div>
+			</div>
+
+			<div class="controls row">
+				<div class="row">
+					<div class="col-sm-12 masterSliderContainer">
+						<div class="masterLabel">Output</div>
+						<div id="outputSlider" class="masterSlider"></div>
+						<div id="outputSliderValue" class="masterOutput"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-sm-10 stepcontain">
+			<div id="sequenceRow1" class="sequenceRow row"></div>
+			<div id="sequenceRow2" class="sequenceRow row"></div>
+			<div id="arpRow1" class="sequenceRow row"></div>
+			<div id="arpRow2" class="sequenceRow row"></div>
+		</div>
+	</div>
+
+	<script type='text/javascript' src="js/nouislider.min.js"></script>
+	<script type='text/javascript' src="js/jquery-1.11.3.min.js"></script>
+	<script type='text/javascript' src="js/bootstrap.min.js"></script>
+	<script type='text/javascript' src="js/sequencerlib.js"></script>
+	<script type='text/javascript' src="js/sequencer.js"></script>
+
+</body>
+</html>
