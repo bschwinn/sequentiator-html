@@ -274,28 +274,28 @@ iOSContainer.prototype = {
         if ( data ) {
             url += ",\"data\":{";
             // do something real with data
-            if ( data.output ) {
+            if ( data.output != null ) {
                 url += "\"output\" : \"" +  data.output + "\",";
             }
-            if ( data.step ) {
+            if ( data.step != null ) {
                 url += "\"step\" : \"" +  data.step + "\",";
             }
-            if ( data.val ) {
+            if ( data.val != null ) {
                 url += "\"val\" : \"" +  data.val + "\",";
             }
-            if ( data.enabled ) {
+            if ( data.enabled != null ) {
                 url += "\"enabled\" : \"" +  data.enabled + "\",";
             }
-            if ( data.mode ) {
+            if ( data.mode != null ) {
                 url += "\"mode\" : \"" +  data.mode + "\",";
             }
-            if ( data.speed ) {
+            if ( data.speed != null ) {
                 url += "\"speed\" : \"" +  data.speed + "\",";
             }
-            if ( data.multiplier ) {
+            if ( data.multiplier != null ) {
                 url += "\"multiplier\" : \"" +  data.multiplier + "\",";
             }
-            if ( data.reset ) {
+            if ( data.reset != null ) {
                 url += "\"reset\" : \"" +  data.reset + "\",";
             }
             url = url.substring(0,url.length-1);
