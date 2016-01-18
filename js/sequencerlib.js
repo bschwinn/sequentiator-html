@@ -264,8 +264,44 @@ iOSContainer.prototype = {
     sendData: function(data) {
         this.callUp("sendData",data);
     },
+    sendBatch: function(data) {
+        for ( var i=0; i<data.length; i++ ) {
+            this.sendData(data[i]);
+        }
+    },
     callUp: function(name, data) {
-        var url = "sequencer://{ \"functionname\" : \"" + name + "\", \"data\" : \"" + data + "\" }";
+        var url = "sequencer://{\"functionname\":\"" + name + "\"";
+        if ( data ) {
+            url += ",\"data\":{";
+            // do something real with data
+            if ( data.output ) {
+                url += "\"output\" : \"" +  data.output + "\",";
+            }
+            if ( data.step ) {
+                url += "\"step\" : \"" +  data.step + "\",";
+            }
+            if ( data.val ) {
+                url += "\"val\" : \"" +  data.val + "\",";
+            }
+            if ( data.enabled ) {
+                url += "\"enabled\" : \"" +  data.enabled + "\",";
+            }
+            if ( data.mode ) {
+                url += "\"mode\" : \"" +  data.mode + "\",";
+            }
+            if ( data.speed ) {
+                url += "\"speed\" : \"" +  data.speed + "\",";
+            }
+            if ( data.multiplier ) {
+                url += "\"multiplier\" : \"" +  data.multiplier + "\",";
+            }
+            if ( data.reset ) {
+                url += "\"reset\" : \"" +  data.reset + "\",";
+            }
+            url = url.substring(0,url.length-1);
+            url += "}";
+        }
+        url += "}";
         // window.location.href = url;
         var iframe = document.createElement("IFRAME");
         iframe.setAttribute("src", url);

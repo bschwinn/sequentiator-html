@@ -43,7 +43,7 @@ var MODE_SEQ = 0;
 var MODE_ARP = 1;
 var OUT_1 = 1;
 var OUT_2 = 2;
-var selectedMode = MODE_ARP;
+var selectedMode = MODE_SEQ;
 // sequencer states
 var STATE_PLAYING = 1;
 var STATE_STOPPED = 2;
@@ -415,7 +415,7 @@ initMasterSection = function() {
 	updateTransportButtons();
 
 	// output voltage and bank control
-	initOutputSlider();
+	// initOutputSlider();
 }
 
 initStep = function(parentSel, step) {
@@ -452,6 +452,7 @@ $(document).ready(function(){
 
 	initSteps();
 	initMasterSection();
+	$('#seqBPM').text('##.#');
 
 	// testing out some container stuff
 	window.setTimeout(function() {

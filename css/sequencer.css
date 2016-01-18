@@ -16,7 +16,7 @@ BODY {
 
 /* master side stuff */
 .controlcontain {
-	padding-right:0;
+	padding-left:0;
 }
 .controls {
 	border:solid 1px #aaa;
@@ -81,7 +81,7 @@ BODY {
 }
 /* steps side stuff */
 .stepcontain {
-	padding-left: 0;
+	padding-right: 0;
 }
 .sequenceRow {
 	margin: 10px 0;
@@ -100,7 +100,7 @@ BODY {
 	background: url('../img/blackmetal.png');
 }
 .stepIndicator {
-	padding:10% 20%;
+	padding:10% 20% 5% 20%;
 }
 .stepIndicator .stepLED {
 	height:10px;
@@ -125,7 +125,7 @@ BODY {
 	background: orange;
 }
 .stepToggle {
-	padding:15% 8%;
+	padding:10% 8%;
 }
 .stepToggle .btn {
 	padding: 3px 7px;
