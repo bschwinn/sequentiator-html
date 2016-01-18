@@ -34,6 +34,31 @@ BODY {
 	padding:5px 10px;
 	text-align: center;
 }
+#masterLogo {
+	padding:0;
+}
+#masterLogoTitle {
+	margin:10px 0 5px 0;
+	text-align: right;
+}
+.masterLogo {
+	background: url('../img/logo-sm-whtrans.png') no-repeat 5px 0;
+	height:100px;
+}
+.masterLogo .btn {
+	padding:4px 8px;
+}
+.masterLogoByline {
+	font-size: .6em;
+	padding:0;
+	margin:0 0 10px 0;
+}
+#masterSpeedTitle {
+	margin:10px 0 0 0;
+}
+#masterBankTitle {
+	margin:0 0 5px 0;
+}
 #modeSelector .btn-lg, #bankSelector .btn-lg {
 	padding:10px 12px;
 }
@@ -58,12 +83,6 @@ BODY {
 .masterButtonContainer .masterButton button {
 	font-size: .9em;
 	height: 3.5em;
-}
-#masterSpeedTitle {
-	margin:10px 0 0 0;
-}
-#masterBankTitle {
-	margin:0 0 5px 0;
 }
 .masterLabel {
 	font-weight: bold;

@@ -93,8 +93,10 @@ sequencerStep = function(config) {
 };
 sequencerStep.prototype = {
     init: function(config) {
+        this.idpref = config.idpref || "step_";
         this.enabled = config.enabled;
         this.stepIndex = config.stepIndex;
+        this.id = this.idpref + this.stepIndex;
         this.val = config.val;
         this.reset = config.reset || false;
         this.labels = ["Off", "On"];
@@ -109,8 +111,8 @@ sequencerStep.prototype = {
     addElements: function(parentSel) {
         var that = this;
         var parent = $(parentSel);
-        parent.append('<div id="step_' + this.stepIndex + '" class="seqStepOuter"></div>');
-        var stepOuter = parent.find('#step_'+ this.stepIndex);
+        parent.append('<div id="' + this.id + '" class="seqStepOuter"></div>');
+        var stepOuter = parent.find('#' + this.id);
         stepOuter.append('<div class="seqStep"></div>');
         var step = stepOuter.find('.seqStep');
         step.append('<div class="stepIndicator clearfix"><div class="stepLED pull-left"></div><div class="stepValue text-center pull-right"></div></div>')

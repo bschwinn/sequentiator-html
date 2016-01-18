@@ -155,15 +155,21 @@ handleArpStepSlider = function(idx, val) {
 	arpSteps[idx].val = val;
 	seqCont.sendData( { output: OUT_1, step: idx, val: val } );  // Bank/Output is locked at 1 for arp
 }
-// set the value (CV) for a step
+// pass the lowest reset up to the sequencer
 handleStepReset = function(idx, val) {
 	resets[idx] = val;
 	var anyResets = false;
 	for ( var i=0; i<resets.length; i++ ) {
-		if ( resets[i] ) {
+		if ( !anyResets ) {
+			$('#step_'+i+' .seqStep').removeClass('disabled');
+			$('#arpstep_'+i+' .seqStep').removeClass('disabled');
+		} else {
+			$('#step_'+i+' .seqStep').addClass('disabled');
+			$('#arpstep_'+i+' .seqStep').addClass('disabled');
+		}
+		if ( resets[i] && !anyResets) {
 			seqCont.sendData( { reset: i+1 } );
 			anyResets = true;
-			break;
 		}
 	}
 	if ( !anyResets ) seqCont.sendData( { reset: numberOfSteps } );
@@ -419,7 +425,7 @@ initMasterSection = function() {
 }
 
 initStep = function(parentSel, step) {
-	var stepObj = new sequencerStep( { parentSelector: parentSel, stepIndex : step.idx, val: step.val, enabled: step.enabled, reset: resets[step.idx] } );
+	var stepObj = new sequencerStep( { idpref: 'step_', parentSelector: parentSel, stepIndex : step.idx, val: step.val, enabled: step.enabled, reset: resets[step.idx] } );
 	stepObj.addHandlers(handleStepToggle, handleStepSlider, handleStepReset);
 	if ( currentStep == step.idx ) {
 		stepObj.setCurrent();
@@ -440,7 +446,7 @@ initSteps = function() {
 	updateStepDisplay();
 }
 initArpStep = function(parentSel, step) {
-	var stepObj = new arpStep( { parentSelector: parentSel, stepIndex : step.idx, val: step.val, enabled: step.enabled, reset: resets[step.idx] } );
+	var stepObj = new arpStep( { idpref: 'arpstep_', parentSelector: parentSel, stepIndex : step.idx, val: step.val, enabled: step.enabled, reset: resets[step.idx] } );
 	stepObj.addHandlers(handleArpStepToggle, handleArpStepSlider, handleStepReset);
 	if ( currentStep == step.idx ) {
 		stepObj.setCurrent();
